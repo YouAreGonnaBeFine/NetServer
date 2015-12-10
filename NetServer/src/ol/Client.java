@@ -13,15 +13,15 @@ public class Client {
 	InputStream inStream;
 	OutputStream outStream;
 
-	 public static void main(String args[]){
+	public static void main(String args[]) {
 		Client client = new Client();
 		client.conn();
 	}
 
 	public Client() {
 		try {
-			System.out.println("-------------This is client-----------------");
-			socket = new Socket("115.159.152.136", 8090);
+			System.out.println("-------------客户端-----------------");
+			socket = new Socket("127.0.0.1", 8090);
 			inStream = socket.getInputStream();
 			outStream = socket.getOutputStream();
 
@@ -45,17 +45,16 @@ public class Client {
 					BufferedReader bReader = new BufferedReader(inReader);
 					String inMessage = bReader.readLine();
 
-					System.out
-							.println("-------------got server response-----------------");
-
 					while (inMessage != "exit") {
-						System.out.println("h say <-- " + inMessage);
+						System.out.println("message：" + inMessage);
 						byte[] outArr = new byte[100];
 						System.in.read(outArr);
 						outStream.write(outArr);
-						System.out.println("u say ---> " + new String(outArr));
+						// System.out.println("u say ---> " + new
+						// String(outArr));
 
 						inMessage = bReader.readLine();
+						inMessage = inMessage.trim();
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
