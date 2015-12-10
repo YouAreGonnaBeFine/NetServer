@@ -14,6 +14,7 @@ public class Server extends Thread {
 	private boolean isStop = false;
 	//
 	private Vector connectionQueue = null;
+	
 	private int connCounter = 0;
 	// 路由对象
 	private Route route = null;
