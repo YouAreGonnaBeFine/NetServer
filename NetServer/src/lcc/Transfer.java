@@ -42,8 +42,7 @@ public class Transfer extends Thread {
 	/**
 	 * 传输的实现方法
 	 */
-	private void pipe(InputStream is0, InputStream is1, OutputStream os0,
-			OutputStream os1) {
+	private void pipe(InputStream is0, InputStream is1, OutputStream os0,OutputStream os1) {
 		try {
 			int ir;
 			byte bytes[] = new byte[BUFSIZ];
