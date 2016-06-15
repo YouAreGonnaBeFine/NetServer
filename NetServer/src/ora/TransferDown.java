@@ -37,6 +37,7 @@ public class TransferDown extends Thread {
 			int ir;
 			byte bytes[] = new byte[BUFSIZ];
 			while (true) {
+				System.out.println("Down");
 				try {
 					if ((ir = is1.read(bytes)) > 0) {
 						os1.write(bytes, 0, ir);

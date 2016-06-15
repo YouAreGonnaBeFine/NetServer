@@ -36,6 +36,7 @@ public class TransferUp extends Thread {
 			int ir;
 			byte bytes[] = new byte[BUFSIZ];
 			while (true) {
+				System.out.println("Up");
 				try {
 					if ((ir = is0.read(bytes)) > 0) {
 						os0.write(bytes, 0, ir);
