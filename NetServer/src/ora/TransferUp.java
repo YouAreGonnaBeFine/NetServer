@@ -5,9 +5,9 @@ import java.io.InterruptedIOException;
 import java.io.OutputStream;
 import java.net.Socket;
 
-public class Transfer extends Thread {
+public class TransferUp extends Thread {
 
-	public Transfer(Socket s1, Socket s2) {
+	public TransferUp(Socket s1, Socket s2) {
 		this.socket1 = s1;
 		this.socket2 = s2;
 		this.start();

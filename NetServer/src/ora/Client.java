@@ -4,28 +4,28 @@ import java.net.Socket;
 
 public class Client extends Thread {
 
-	private Route route;
+	private LinkInfo link;
 
-	public Client(Route route) {
-		this.route = route;
+	public Client(LinkInfo link) {
+		this.link = link;
 		start();
 	}
 
 	public void run() {
-		Socket client1 = null;
-		Socket client2 = null;
+		Socket clientSocketToServer = null;
+		Socket clientSocketToDb = null;
 		try {
-			client1 = new Socket(route.getLocalIP(), route.getLocalPort());
-			System.out.println("client1 set up!");
-			client2 = new Socket(route.getDestHost(), route.getDestPort());
-			System.out.println("client2 set up!");
+			clientSocketToServer = new Socket(link.getSerIP(), link.getSerPort());
+			System.out.println("SerLink init complete!");
+			clientSocketToDb = new Socket(link.getDbIP(), link.getDbPort());
+			System.out.println("DbLink  init complete!");
 		} catch (Exception e) {
 			return;
 		}
 
 			try {
-				new Transfer(client1, client2);
-				new Transfer2(client1, client2);
+				new TransferUp(clientSocketToServer, clientSocketToDb);
+				new TransferDown(clientSocketToServer, clientSocketToDb);
 
 			} catch (Exception e) {
 			}

@@ -5,31 +5,31 @@ import java.net.Socket;
 
 public class Server extends Thread {
 
-	private Route route;
+	private LinkInfo link;
 
-	public Server(Route route) {
-		this.route = route;
+	public Server(LinkInfo link) {
+		this.link = link;
 		start();
 	}
 
 	public void run() {
 		ServerSocket server = null;
 		try {
-			server = new ServerSocket(route.getLocalPort());
+			server = new ServerSocket(link.getSerPort());
 			System.out.println("System Online!");
 		} catch (Exception e) {
 			return;
 		}
 			try {
-				Socket sock1 = server.accept();
-				System.out.println("socket1 accpet!");
-				Socket sock2 = server.accept();
-				System.out.println("socket2 accpet!");
-				sock1.setSoTimeout(0);
-				sock2.setSoTimeout(0);
+				Socket remoteSocket = server.accept();
+				System.out.println("remoteSocket accpet!");
+				Socket localSocket = server.accept();
+				System.out.println("localSocket  accpet!");
+				remoteSocket.setSoTimeout(0);
+				localSocket.setSoTimeout(0);
 
-				new Transfer(sock1, sock2);
-				new Transfer2(sock1, sock2);
+				new TransferUp(remoteSocket, localSocket);
+				new TransferDown(remoteSocket, localSocket);
 
 			} catch (Exception e) {
 			}

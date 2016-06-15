@@ -4,13 +4,13 @@ public class ClientLaunch {
 
 	public static void main(String[] args) {
 		
-    	Route route = new Route();
-    	route.setLocalIP("127.0.0.1");
-    	route.setLocalPort(8888);
-    	route.setDestHost("192.168.56.101");
-    	route.setDestPort(1521);
+    	LinkInfo link = new LinkInfo();
+    	link.setSerIP("127.0.0.1");
+    	link.setSerPort(8888);
+    	link.setDbIP("192.168.56.101");
+    	link.setDbPort(1521);
     	
-    	new Client(route);
+    	new Client(link);
 
 	}
 

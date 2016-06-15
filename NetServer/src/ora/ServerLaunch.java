@@ -4,11 +4,11 @@ public class ServerLaunch {
 	
     public static void main(String args[]) {
     	
-    	Route route = new Route();
-    	route.setLocalPort(8888);
+    	LinkInfo link = new LinkInfo();
+    	link.setSerPort(8888);
   
     	
-    	new Server(route);
+    	new Server(link);
     	
     	
     	
