@@ -1,7 +1,5 @@
 package ora;
 
-import java.net.Inet4Address;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -17,8 +15,7 @@ public class Server extends Thread {
 	public void run() {
 		ServerSocket server = null;
 		try {
-			InetAddress ip = Inet4Address.getByName(route.getLocalIP());
-			server = new ServerSocket(route.getLocalPort(), 4, ip);
+			server = new ServerSocket(route.getLocalPort());
 			System.out.println("System Online!");
 		} catch (Exception e) {
 			return;

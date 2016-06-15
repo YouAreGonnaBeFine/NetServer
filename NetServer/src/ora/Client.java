@@ -22,13 +22,13 @@ public class Client extends Thread {
 		} catch (Exception e) {
 			return;
 		}
-		while (true) {
+
 			try {
 				new Transfer(client1, client2);
 
 			} catch (Exception e) {
 			}
-		}
+		
 	}
 
 }
