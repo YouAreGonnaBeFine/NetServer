@@ -17,7 +17,7 @@ public class Client extends Thread {
 		try {
 			client1 = new Socket(route.getLocalIP(), route.getLocalPort());
 			System.out.println("client1 set up!");
-			client2 = new Socket(route.getDestHost(), route.getDestPort0());
+			client2 = new Socket(route.getDestHost(), route.getDestPort());
 			System.out.println("client2 set up!");
 		} catch (Exception e) {
 			return;

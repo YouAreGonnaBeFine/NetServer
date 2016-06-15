@@ -8,7 +8,7 @@ public class Route {
 	
 	private String DestHost;
 	
-	private int DestPort0;
+	private int DestPort;
 
 	public String getLocalIP() {
 		return LocalIP;
@@ -34,12 +34,12 @@ public class Route {
 		DestHost = destHost;
 	}
 
-	public int getDestPort0() {
-		return DestPort0;
+	public int getDestPort() {
+		return DestPort;
 	}
 
-	public void setDestPort0(int destPort0) {
-		DestPort0 = destPort0;
+	public void setDestPort(int destPort) {
+		DestPort = destPort;
 	}
 
 }
