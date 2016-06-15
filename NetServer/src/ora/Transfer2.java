@@ -5,9 +5,9 @@ import java.io.InterruptedIOException;
 import java.io.OutputStream;
 import java.net.Socket;
 
-public class Transfer extends Thread {
+public class Transfer2 extends Thread {
 
-	public Transfer(Socket s1, Socket s2) {
+	public Transfer2(Socket s1, Socket s2) {
 		this.socket1 = s1;
 		this.socket2 = s2;
 		this.start();
@@ -36,8 +36,8 @@ public class Transfer extends Thread {
 			byte bytes[] = new byte[BUFSIZ];
 			while (true) {
 				try {
-					if ((ir = is0.read(bytes)) > 0) {
-						os0.write(bytes, 0, ir);
+					if ((ir = is1.read(bytes)) > 0) {
+						os1.write(bytes, 0, ir);
 					} else if (ir < 0) {
 						break;
 					}

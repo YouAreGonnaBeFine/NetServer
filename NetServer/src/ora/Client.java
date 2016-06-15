@@ -25,6 +25,7 @@ public class Client extends Thread {
 
 			try {
 				new Transfer(client1, client2);
+				new Transfer2(client1, client2);
 
 			} catch (Exception e) {
 			}

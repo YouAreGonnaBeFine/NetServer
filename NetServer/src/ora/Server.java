@@ -20,7 +20,6 @@ public class Server extends Thread {
 		} catch (Exception e) {
 			return;
 		}
-		while (true) {
 			try {
 				Socket sock1 = server.accept();
 				System.out.println("socket1 accpet!");
@@ -30,10 +29,10 @@ public class Server extends Thread {
 				sock2.setSoTimeout(0);
 
 				new Transfer(sock1, sock2);
+				new Transfer2(sock1, sock2);
 
 			} catch (Exception e) {
 			}
-		}
 	}
 
 }
