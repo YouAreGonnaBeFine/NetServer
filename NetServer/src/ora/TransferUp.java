@@ -6,6 +6,12 @@ import java.io.OutputStream;
 import java.net.Socket;
 
 public class TransferUp extends Thread {
+	
+	Socket socket1;
+	Socket socket2;
+	
+	static private int TIMEOUT = 0;
+	static private int BUFSIZ = 1024;
 
 	public TransferUp(Socket s1, Socket s2) {
 		this.socket1 = s1;
@@ -19,18 +25,13 @@ public class TransferUp extends Thread {
 			InputStream is = socket1.getInputStream();
 			socket2.setSoTimeout(TIMEOUT);
 			OutputStream os = socket2.getOutputStream();
-			pipe(is, socket2.getInputStream(), os, socket1.getOutputStream());
+			exchange(is, socket2.getInputStream(), os, socket1.getOutputStream());
 		} catch (Exception e) {
 		} finally {
-//			closeSocket(socket2);
-//			closeSocket(socket1);
 		}
 	}
 
-	/**
-	 * 传输的实现方法
-	 */
-	private void pipe(InputStream is0, InputStream is1, OutputStream os0, OutputStream os1) {
+	private void exchange(InputStream is0, InputStream is1, OutputStream os0, OutputStream os1) {
 		try {
 			int ir;
 			byte bytes[] = new byte[BUFSIZ];
@@ -49,17 +50,5 @@ public class TransferUp extends Thread {
 		}
 	}
 
-	void closeSocket(Socket s) {
-		try {
-			s.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
-	Socket socket1;
-	Socket socket2;
-	
-	static private int TIMEOUT = 0;
-	static private int BUFSIZ = 1024;
 }
