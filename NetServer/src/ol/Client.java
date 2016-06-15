@@ -9,6 +9,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class Client {
+	
 	Socket socket;
 	InputStream inStream;
 	OutputStream outStream;
