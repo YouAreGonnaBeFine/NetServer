@@ -18,6 +18,7 @@ public class Server extends Thread {
 			server = new ServerSocket(link.getSerPort());
 			System.out.println("System Online!");
 		} catch (Exception e) {
+			e.printStackTrace();
 			return;
 		}
 			try {
@@ -32,6 +33,7 @@ public class Server extends Thread {
 				new TransferDown(remoteSocket, localSocket);
 
 			} catch (Exception e) {
+				e.printStackTrace();
 			}
 	}
 

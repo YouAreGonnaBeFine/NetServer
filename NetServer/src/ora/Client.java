@@ -20,6 +20,7 @@ public class Client extends Thread {
 			clientSocketToDb = new Socket(link.getDbIP(), link.getDbPort());
 			System.out.println("DbLink  init complete!");
 		} catch (Exception e) {
+			e.printStackTrace();
 			return;
 		}
 
@@ -28,6 +29,7 @@ public class Client extends Thread {
 				new TransferDown(clientSocketToServer, clientSocketToDb);
 
 			} catch (Exception e) {
+				e.printStackTrace();	
 			}
 		
 	}

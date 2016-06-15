@@ -22,8 +22,8 @@ public class TransferDown extends Thread {
 			pipe(is, socket2.getInputStream(), os, socket1.getOutputStream());
 		} catch (Exception e) {
 		} finally {
-			closeSocket(socket2);
-			closeSocket(socket1);
+//			closeSocket(socket2);
+//			closeSocket(socket1);
 		}
 	}
 
@@ -44,14 +44,16 @@ public class TransferDown extends Thread {
 				} catch (InterruptedIOException e) {
 				}
 			}
-		} catch (Exception e0) {
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
 	void closeSocket(Socket s) {
 		try {
 			s.close();
-		} catch (Exception ef) {
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
