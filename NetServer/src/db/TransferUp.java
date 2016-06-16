@@ -1,4 +1,4 @@
-package ora;
+package db;
 
 import java.io.InputStream;
 import java.io.InterruptedIOException;
@@ -11,7 +11,7 @@ public class TransferUp extends Thread {
 	Socket socket2;
 	
 	static private int TIMEOUT = 0;
-	static private int BUFSIZ = 1024;
+	static private int BUFSIZ = 8;
 
 	public TransferUp(Socket s1, Socket s2) {
 		this.socket1 = s1;

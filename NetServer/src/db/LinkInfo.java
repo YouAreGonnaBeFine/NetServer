@@ -1,4 +1,4 @@
-package ora;
+package db;
 
 public class LinkInfo {
 	

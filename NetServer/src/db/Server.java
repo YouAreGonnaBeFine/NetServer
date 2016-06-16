@@ -1,4 +1,4 @@
-package ora;
+package db;
 
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -29,8 +29,8 @@ public class Server extends Thread {
 				remoteSocket.setSoTimeout(0);
 				localSocket.setSoTimeout(0);
 
-				new TransferUp(remoteSocket, localSocket);
 				new TransferDown(remoteSocket, localSocket);
+				new TransferUp(remoteSocket, localSocket);
 
 			} catch (Exception e) {
 				e.printStackTrace();
