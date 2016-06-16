@@ -28,9 +28,12 @@ public class Server extends Thread {
 				System.out.println("localSocket  accpet!");
 				remoteSocket.setSoTimeout(0);
 				localSocket.setSoTimeout(0);
+				
+				remoteSocket.setTcpNoDelay(true);
+				localSocket.setTcpNoDelay(true);
 
-				new TransferDown(remoteSocket, localSocket);
-				new TransferUp(remoteSocket, localSocket);
+				new TransferDown(remoteSocket, localSocket,"ToCZ");
+				new TransferUp(remoteSocket, localSocket,"ToYonYou");
 
 			} catch (Exception e) {
 				e.printStackTrace();

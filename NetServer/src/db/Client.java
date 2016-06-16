@@ -25,8 +25,12 @@ public class Client extends Thread {
 		}
 
 			try {
-				new TransferUp(clientSocketToServer, clientSocketToDb);
-				new TransferDown(clientSocketToServer, clientSocketToDb);
+				clientSocketToServer.setSoTimeout(0);
+				clientSocketToDb.setSoTimeout(0);
+				clientSocketToServer.setTcpNoDelay(true);
+				clientSocketToDb.setTcpNoDelay(true);
+				new TransferUp(clientSocketToServer, clientSocketToDb,"ToDb");
+				new TransferDown(clientSocketToServer, clientSocketToDb,"ToSer");
 
 			} catch (Exception e) {
 				e.printStackTrace();	
