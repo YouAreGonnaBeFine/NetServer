@@ -47,7 +47,7 @@ public class TransferDown extends Thread {
 						os1.write(bytes, 0, ir);
 						os1.flush();
 					}else if (ir < 0) {
-						os1.flush();
+						break;
 }
 				} catch (InterruptedIOException e) {
 					e.printStackTrace();

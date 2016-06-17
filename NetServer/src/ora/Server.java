@@ -9,9 +9,9 @@ public class Server extends Thread {
 
 	private LinkInfo link;
 
-	private List<Socket> localServerPool = new ArrayList<>();
+	private List<Socket> localServerPool = new ArrayList<Socket>();
 
-	private List<Socket> remoteServerPool = new ArrayList<>();
+	private List<Socket> remoteServerPool = new ArrayList<Socket>();
 
 	public Server(LinkInfo link) {
 		this.link = link;

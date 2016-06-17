@@ -8,9 +8,9 @@ public class Client extends Thread {
 
 	private LinkInfo link;
 
-	private List<Socket> serverClientPool = new ArrayList<>();
+	private List<Socket> serverClientPool = new ArrayList<Socket>();
 
-	private List<Socket> dbClientPool = new ArrayList<>();
+	private List<Socket> dbClientPool = new ArrayList<Socket>();
 
 	public Client(LinkInfo link) {
 		this.link = link;
