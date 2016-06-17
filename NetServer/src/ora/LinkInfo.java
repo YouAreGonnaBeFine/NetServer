@@ -9,6 +9,8 @@ public class LinkInfo {
 	private String DbIP;
 	
 	private int DbPort;
+	
+	public static final int poolSize = 10;
 
 	public String getSerIP() {
 		return SerIP;

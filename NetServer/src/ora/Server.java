@@ -29,7 +29,7 @@ public class Server extends Thread {
 			e.printStackTrace();
 			return;
 		}
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < LinkInfo.poolSize; i++) {
 			try {
 				Socket remoteSocket = remoteServer.accept();
 //				System.out.println("remoteSocket accpet!");
@@ -42,7 +42,7 @@ public class Server extends Thread {
 			}
 		}
 
-		for (int i = 0; i < 20; i++){
+		for (int i = 0; i < LinkInfo.poolSize; i++){
 			try {
 				Socket localSocket = localServer.accept();
 //				System.out.println("localSocket accpet!");

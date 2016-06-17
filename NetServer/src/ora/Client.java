@@ -22,7 +22,7 @@ public class Client extends Thread {
 		Socket clientSocketToDb = null;
 		try {
 
-			for (int i = 0; i < 20; i++) {
+			for (int i = 0; i < LinkInfo.poolSize; i++) {
 
 				clientSocketToServer = new Socket(link.getSerIP(),
 						link.getSerPort());
@@ -34,7 +34,7 @@ public class Client extends Thread {
 
 			}
 
-			for (int i = 0; i < 20; i++) {
+			for (int i = 0; i < LinkInfo.poolSize; i++) {
 
 				clientSocketToDb = new Socket(link.getDbIP(), link.getDbPort());
 				clientSocketToDb.setSoTimeout(0);
@@ -50,7 +50,7 @@ public class Client extends Thread {
 		}
 
 		try {
-			for (int i = 0; i < 20; i++) {
+			for (int i = 0; i < LinkInfo.poolSize; i++) {
 				new TransferUp(serverClientPool.get(i), dbClientPool.get(i), "ToDb "+i);
 				new TransferDown(serverClientPool.get(i), dbClientPool.get(i), "ToSer "+i);
 			}
